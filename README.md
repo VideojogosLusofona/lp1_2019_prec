@@ -120,12 +120,13 @@ Fica um exemplo simples do possível conteúdo do ficheiro após 10 turnos:
 ```
 
 A evolução da simulação pode ser posteriormente visualizada usando o
-[_script_ Python incluído neste repositório](scripts/plotstats.py), que
+[_script_ Python incluído neste repositório](scripts/plotstats.py)
+(requer bibliotecas Matplotlib e NumPy), que
 aceita como único argumento na linha de comandos o ficheiro gerado pela
 simulação. A seguinte imagem mostra uma possível evolução da simulação com
-os parâmetros _N = 50_, _M = 2000_, _L = 8_ e _T = 100_.
+os parâmetros _N = 50_, _M = 2000_, _L = 8_, _T<sub>inf</sub> = 1_ e _T = 100_:
 
-
+![Resultado da simulação.](img/stats.png "TResultado da simulação.")
 
 ### Resumo
 
