@@ -100,6 +100,23 @@ regras, da mais importante para a menos importante:
 
 _WIP_
 
+### Resumo
+
+Resumindo, a simulação é executada de acordo com o seguinte algoritmo:
+
+_WIP_
+
+## Requisitos do código
+
+### Organização do código e estrutura de classes
+
+O projeto deve estar devidamente organizado, fazendo uso de classes, _structs_
+e enumerações. Cada classe, _struct_ ou enumeração deve ser colocada num
+ficheiro com o mesmo nome. Por exemplo, uma classe chamada `Person` deve ser
+colocada no ficheiro `Person.cs`. A estrutura de classes deve ser bem pensada e
+organizada de uma forma lógica, e [cada classe deve ter uma responsabilidade
+específica e bem definida][SRP].
+
 ### Requisitos de multi-plataforma
 
 A aplicação deve funcionar em Windows, macOS e Linux. A melhor estratégia para
@@ -116,16 +133,6 @@ As instruções que só funcionam em Windows têm a seguinte indicação na sua
 documentação:
 
 ![The current operating system is not Windows.](img/notsupported.png "The current operating system is not Windows.")
-
-### Organização do código e estrutura de classes
-
-O projeto deve estar devidamente organizado, fazendo uso de classes, _structs_
-e enumerações. Cada classe, _struct_ ou enumeração deve ser colocada num
-ficheiro com o mesmo nome. Por exemplo, uma classe chamada `Person` deve ser
-colocada no ficheiro `Person.cs`. A estrutura de classes deve ser bem pensada e
-organizada de uma forma lógica, e [cada classe deve ter uma responsabilidade
-específica e bem definida][SRP].
-
 
 ## Objetivos e critério de avaliação
 
