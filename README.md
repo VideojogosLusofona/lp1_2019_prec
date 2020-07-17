@@ -23,7 +23,7 @@ simulação funciona por turnos e em cada turno cada agente move-se
 aleatoriamente uma posição na sua vizinhança de [Moore].
 
 Um único agente, escolhido aleatoriamente, é infetado no turno
-_t<sub>inf</sub>_. Um agente infetado morre e é removido da simulação após
+_T<sub>inf</sub>_. Um agente infetado morre e é removido da simulação após
 _L_ turnos. No entanto enquanto está vivo e infetado, move-se normalmente,
 infetando todos os agentes que se encontram na mesma posição após cada turno.
 Os novos infetados tornam-se imediatamente contagiosos de forma semelhante,
@@ -33,9 +33,43 @@ morrendo também ao fim de _L_ turnos.
 
 ### Opções de linha de comando
 
+O programa deve aceitar duas opções na linhaN de comando:
+
+* `-N` - Uma das dimensões da grelha de simulação _N x N_.
+* `-M` - Número de agentes inicialmente na simulação.
+* `-L` - Tempo de vida de um agente (em turnos) após ter sido infetado.
+* `-Tinf` - Turno em que ocorre a primeira infeção.
+* `-v` - Opção que ativa a visualização da simulação (ver próxima secção).
+* `-o` - Opção que indica um ficheiro no qual serão gravadas as estatísticas
+  da simulação em cada turno.
+
+Um exemplo de execução:
+
+```
+dotnet run -- -N 50 -M 100 -L 10 -Tinf 5 -v -o stats.tsv
+```
+
+A primeira opção, `--`, serve para separar entre as opções do comando `dotnet`
+e as opções do programa a ser executado, neste caso o nosso jogo.
+
+As opções indicadas podem ser dadas em qualquer ordem. As opções `-N`, `-M`,
+`-L` e `-Tinf` são obrigatórias, e se alguma delas for omitida o programa deve
+terminar com uma mensagem de erro indicando o modo de uso. A opção `-v` é
+opcional, e a sua omissão leva a que a simulação corra sem visualização
+(ver próxima secção). A opção `-o` também é opcional, e a sua omissão leva a
+que o programa não grave as estatísticas da simulação num ficheiro.
+
+Para quem preferir usar o Visual Studio Community 2019, as opções de linha de
+comandos podem ser definidas diretamente da seguinte forma: 1) clicar com
+o botão direito em cima do nome do projeto; 2) selecionar "Properties"; 3)
+selecionar separador "Debug"; e, 4) na
+caixa "Command line arguments" especificar os argumentos desejados.
+
+### Visualização
+
 _WIP_
 
-### Execução, visualização e saídas
+### Ficheiro com estatísticas
 
 _WIP_
 
