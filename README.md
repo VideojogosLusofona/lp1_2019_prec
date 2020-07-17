@@ -13,7 +13,7 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 ## Introdução
 
 Os grupos devem implementar uma simulação de pandemia na forma de uma aplicação
-de consola .NET Core.
+de consola .NET Core na linguagem C#.
 
 ## Modelo para simulação
 
