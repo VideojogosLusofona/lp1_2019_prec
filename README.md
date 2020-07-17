@@ -17,11 +17,19 @@ de consola .NET Core.
 
 ## Modelo para simulação
 
-_WIP_
+A simulação corre numa grelha _N x N_, na qual _M_ agentes se movem de forma
+aleatória, sendo possível estar mais do que um agente na mesma posição. A
+simulação funciona por turnos e em cada turno cada agente move-se
+aleatoriamente uma posição na sua vizinhança de [Moore].
+
+Um único agente, escolhido aleatoriamente, é infetado no turno
+_t<sub>inf</sub>_. Um agente infetado morre e é removido da simulação após
+_L_ turnos. No entanto enquanto está vivo e infetado, move-se normalmente,
+infetando todos os agentes que se encontram na mesma posição após cada turno.
+Os novos infetados tornam-se imediatamente contagiosos de forma semelhante,
+morrendo também ao fim de _L_ turnos.
 
 ## Funcionamento da simulação
-
-_WIP_
 
 ### Opções de linha de comando
 
@@ -56,6 +64,7 @@ ficheiro com o mesmo nome. Por exemplo, uma classe chamada `Person` deve ser
 colocada no ficheiro `Person.cs`. A estrutura de classes deve ser bem pensada e
 organizada de uma forma lógica, e [cada classe deve ter uma responsabilidade
 específica e bem definida][SRP].
+
 
 ## Objetivos e critério de avaliação
 
@@ -211,3 +220,4 @@ Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]*
 [XML]:https://docs.microsoft.com/dotnet/csharp/codedoc
 [SRP]:https://en.wikipedia.org/wiki/Single_responsibility_principle
 [2º projeto de LP1 2018/19]:https://github.com/VideojogosLusofona/lp1_2018_p2_solucao
+[Moore]:https://en.wikipedia.org/wiki/Moore_neighborhood
