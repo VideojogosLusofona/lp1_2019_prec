@@ -25,9 +25,13 @@ aleatoriamente uma posição na sua vizinhança de [Moore].
 Um único agente, escolhido aleatoriamente, é infetado no turno
 _T<sub>inf</sub>_. Um agente infetado morre e é removido da simulação após
 _L_ turnos. No entanto enquanto está vivo e infetado, move-se normalmente,
-infetando todos os agentes que se encontram na mesma posição após cada turno.
-Os novos infetados tornam-se imediatamente contagiosos de forma semelhante,
+infetando todos os agentes que se encontrem na mesma posição no fim de cada
+turno.
+Os novos infetados tornam-se imediatamente e igualmente contagiosos,
 morrendo também ao fim de _L_ turnos.
+
+A simulação termina após _T_ turnos ou quando todos os agentes morrerem
+(aquilo que acontecer primeiro).
 
 ## Funcionamento da simulação
 
@@ -39,6 +43,7 @@ O programa deve aceitar duas opções na linhaN de comando:
 * `-M` - Número de agentes inicialmente na simulação.
 * `-L` - Tempo de vida de um agente (em turnos) após ter sido infetado.
 * `-Tinf` - Turno em que ocorre a primeira infeção.
+* `-T` - Número máximo de turnos.
 * `-v` - Opção que ativa a visualização da simulação (ver próxima secção).
 * `-o` - Opção que indica um ficheiro no qual serão gravadas as estatísticas
   da simulação em cada turno.
@@ -46,15 +51,15 @@ O programa deve aceitar duas opções na linhaN de comando:
 Um exemplo de execução:
 
 ```
-dotnet run -- -N 50 -M 100 -L 10 -Tinf 5 -v -o stats.tsv
+dotnet run -- -N 50 -M 100 -L 10 -Tinf 5 -T 1000 -v -o stats.tsv
 ```
 
 A primeira opção, `--`, serve para separar entre as opções do comando `dotnet`
 e as opções do programa a ser executado, neste caso o nosso jogo.
 
 As opções indicadas podem ser dadas em qualquer ordem. As opções `-N`, `-M`,
-`-L` e `-Tinf` são obrigatórias, e se alguma delas for omitida o programa deve
-terminar com uma mensagem de erro indicando o modo de uso. A opção `-v` é
+`-L`, `-Tinf` e `-T` são obrigatórias, e se alguma delas for omitida o programa
+deve terminar com uma mensagem de erro indicando o modo de uso. A opção `-v` é
 opcional, e a sua omissão leva a que a simulação corra sem visualização
 (ver próxima secção). A opção `-o` também é opcional, e a sua omissão leva a
 que o programa não grave as estatísticas da simulação num ficheiro.
@@ -67,7 +72,29 @@ caixa "Command line arguments" especificar os argumentos desejados.
 
 ### Visualização
 
-_WIP_
+Caso a opção `-v` seja omitida, o programa deve simplesmente imprimir algo
+semelhante ao seguinte:
+
+```
+Turn 1 done (300 healthy, 0 infected, 0 deceased)
+Turn 2 done (300 healthy, 0 infected, 0 deceased)
+Turn 3 done (299 healthy, 1 infected, 0 deceased)
+Turn 4 done (297 healthy, 3 infected, 0 deceased)
+...
+```
+
+Caso a opção `-v` seja dada, além do número de agentes saudáveis, infetados e
+mortos, deve também ser mostrada e atualizada a grelha de simulação após cada
+turno. Esta visualização deve ser muito simples, e obedecer às seguintes
+regras, da mais importante para a menos importante:
+
+* Uma posição na qual tenha morrido um agente no último turno deve ter
+  cor de fundo vermelha.
+* Uma posição que contenha pelo menos um agente infetado deve ter
+  cor de fundo amarela.
+* Uma posição que contenha apenas agentes saudáveis deve ter cor de fundo
+  verde.
+* Uma posição sem agentes deve ter a cor de fundo da consola.
 
 ### Ficheiro com estatísticas
 
