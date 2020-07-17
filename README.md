@@ -130,9 +130,19 @@ os parâmetros _N = 50_, _M = 2000_, _L = 8_, _T<sub>inf</sub> = 1_ e _T = 100_:
 
 ### Resumo
 
-Resumindo, a simulação é executada de acordo com o seguinte algoritmo:
+Resumindo, a simulação é executada de acordo com os seguintes passos:
 
-_WIP_
+1. Se número de agentes vivos > 0 e turno atual < _T_:
+   1. Se turno atual == _T<sub>inf</sub>_, infetar um agente aleatoriamente.
+   2. Para cada agente vivo: mover uma posição aleatoriamente.
+   3. Para cada posição: se existir um agente infetado na posição atual,
+      todos os agentes saudáveis nessa mesma posição também ficam infetados.
+   4. Contar número de agentes saudáveis, infetados e mortos, eventualmente
+      guardar esta informação para posteriormente exportar para um ficheiro.
+   5. Mostrar estatísticas do turno atual e possivelmente atualizar
+      visualização (caso tenha sido dada a opção `-v`).
+   6. Voltar ao ponto 1.
+2. Exportar dados para ficheiro caso tenha sido indicada a opção `-o`.
 
 ## Requisitos do código
 
@@ -144,6 +154,13 @@ ficheiro com o mesmo nome. Por exemplo, uma classe chamada `Person` deve ser
 colocada no ficheiro `Person.cs`. A estrutura de classes deve ser bem pensada e
 organizada de uma forma lógica, e [cada classe deve ter uma responsabilidade
 específica e bem definida][SRP].
+
+### Eficiência do código
+
+Existem variadíssimas formas de implementar esta simulação corretamente.
+Soluções mais eficientes (que executem a simulação mais rapidamente) serão
+bonificadas na nota. Todas as otimizações implementadas devem ser mencionadas
+no relatório.
 
 ### Requisitos de multi-plataforma
 
@@ -166,10 +183,11 @@ documentação:
 
 Este projeto tem os seguintes objetivos:
 
-* **O1** - Programa deve funcionar como especificado.
+* **O1** - Programa deve funcionar como especificado. Atenção aos detalhes,
+  pois é fácil desviarem-se das especificações caso não leiam o enunciado com
+  atenção.
 * **O2** - Projeto e código bem organizados, nomeadamente:
-  * Estrutura de classes bem pensada (ver secção [Organização do código e
-    estrutura de classes](#organizacao-do-codigo-e-estrutura-de-classes)).
+  * Estrutura de classes bem pensada e código eficiente.
   * Código devidamente comentado e indentado.
   * Inexistência de código "morto", que não faz nada, como por exemplo
     variáveis, propriedades ou métodos nunca usados.
