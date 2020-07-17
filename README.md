@@ -76,6 +76,7 @@ Caso a opção `-v` seja omitida, o programa deve simplesmente imprimir algo
 semelhante ao seguinte:
 
 ```
+Simulation starts with 300 healthy agents.
 Turn 1 done (300 healthy, 0 infected, 0 deceased)
 Turn 2 done (300 healthy, 0 infected, 0 deceased)
 Turn 3 done (299 healthy, 1 infected, 0 deceased)
@@ -98,7 +99,33 @@ regras, da mais importante para a menos importante:
 
 ### Ficheiro com estatísticas
 
-_WIP_
+Caso a opção `-o` tenha sido indicada na linha de comandos, o programa deve
+exportar os resultados da simulação para um ficheiro em formato [TSV]
+(_tab-separated values_), no qual cada linha representa o número de agentes
+saudáveis, infetados e mortos no fim de cada turno. Os valores devem estar
+separados por _tabs_ (`\t`), sendo o nome do ficheiro dado após a opção `-o`.
+Fica um exemplo simples do possível conteúdo do ficheiro após 10 turnos:
+
+```
+300	0	0
+300	0	0
+299	1	0
+297	3	0
+296	4	0
+291	9	0
+282	18	0
+277	23	0
+269	30	1
+260	37	3
+```
+
+A evolução da simulação pode ser posteriormente visualizada usando o
+[_script_ Python incluído neste repositório](scripts/plotstats.py), que
+aceita como único argumento na linha de comandos o ficheiro gerado pela
+simulação. A seguinte imagem mostra uma possível evolução da simulação com
+os parâmetros _N = 50_, _M = 2000_, _L = 8_ e _T = 100_.
+
+
 
 ### Resumo
 
@@ -289,3 +316,4 @@ Estruturas de Dados][aed] do [Instituto Superior Técnico][ist]*
 [SRP]:https://en.wikipedia.org/wiki/Single_responsibility_principle
 [2º projeto de LP1 2018/19]:https://github.com/VideojogosLusofona/lp1_2018_p2_solucao
 [Moore]:https://en.wikipedia.org/wiki/Moore_neighborhood
+[TSV]:https://en.wikipedia.org/wiki/Tab-separated_values
