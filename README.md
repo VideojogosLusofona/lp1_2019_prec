@@ -37,7 +37,7 @@ A simulação termina após _T_ turnos ou quando todos os agentes morrerem
 
 ### Opções de linha de comando
 
-O programa deve aceitar duas opções na linhaN de comando:
+O programa deve aceitar duas opções na linha de comando:
 
 * `-N` - Uma das dimensões da grelha de simulação _N x N_.
 * `-M` - Número de agentes inicialmente na simulação.
